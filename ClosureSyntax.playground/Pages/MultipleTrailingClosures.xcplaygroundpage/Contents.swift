@@ -33,23 +33,53 @@ func performTask(value: Int,
 }
 
 code(for: "Version 1 - No Trailing Closure Syntax") {
-
+    performTask(value: 10, onSuccess: {
+        print("Done")
+    }, onFailure: { error in
+        print(error.localizedDescription)
+    }, onProgress: { progress in
+        print(progress)
+    })
 }
 
 code(for: "Version 2 - Last Trailing Closure") {
-
+    performTask(value: 10, onSuccess: {
+        print("Done")
+    }, onFailure: { error in
+        print(error.localizedDescription)
+    }) { progress in
+        print(progress)
+    }
 }
 
 code(for: "Version 3 - Second Last ") {
-
+    performTask(value: 10, onSuccess: {
+        print("Done")
+    }) { error in
+        print(error.localizedDescription)
+    } onProgress: { progress in
+        print(progress)
+    }
 }
 
 code(for: "Version 4") {
-
+    performTask(value: 10) {
+        print("Done")
+    } onFailure: { error in
+        print(error.localizedDescription)
+    } onProgress: { progress in
+        print(progress)
+    }
 }
 
 code(for: "Let Xcode Do it") {
-    
+    performTask(value: 9) {
+        print("Done")
+    } onFailure: { error in
+        print(error.localizedDescription)
+    } onProgress: { progress in
+        print(progress)
+    }
 }
 /*:
 [< Previous](@previous)                    [Home](Introduction)                    [Next >](@next)

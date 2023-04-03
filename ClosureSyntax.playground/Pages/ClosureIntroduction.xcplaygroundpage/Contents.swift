@@ -10,24 +10,26 @@ code(for: "Simple Function") {
         print("Hello")
     }
     // Call the function
-
+    sayHello()
 }
 code(for: "Rewrite as a closure") {
-    
+//    let sayHello: () -> Void = { print("Hello") }
+    let sayHello = { print("Hello") }
     // Execute the closure
-    
+    sayHello()
 }
 code(for: "Function with parameter") {
     func sayHello(name: String) {
         print("Hello \(name)")
     }
     // Call the function by passing in an argument
-    
+    sayHello(name: "Stewart")
 }
 code(for: "Rewrite as a closure") {
-
+//    let sayHello: (String) -> Void = { name in print("Hello \(name)") }
+    let sayHello = {(name: String) in print("Hello \(name)")}
     // execute the closure
-   
+    sayHello("Stewart")
 }
 /*:
 [< Previous](@previous)                    [Home](Introduction)                    [Next >](@next)

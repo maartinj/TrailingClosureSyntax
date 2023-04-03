@@ -8,9 +8,23 @@ import SwiftUI
 import PlaygroundSupport
 
 struct ContentView2: View {
-    let items = ["Item 1", "Item 2", "item 3"]
+    @State private var items = ["Item 1", "Item 2", "item 3"]
     var body: some View {
-        Text("Hello World")
+//        List(items, id: \.self) { item in
+//            Text(item)
+//        }
+        List {
+            ForEach(items, id: \.self) { item in
+                Text(item)
+            }
+//            .onDelete { indexSet in
+//                items.remove(atOffsets: indexSet)
+//            }
+            .onDelete(perform: deleteRow(indexSet:))
+        }
+    }
+    func deleteRow(indexSet: IndexSet) {
+        items.remove(atOffsets: indexSet)
     }
 }
 
